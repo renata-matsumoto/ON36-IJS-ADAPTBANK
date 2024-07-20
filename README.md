@@ -23,6 +23,25 @@ Projeto Integrador - Criação de um Banco Comunitário da Reprograma
   * Quem compra com a moeda social recebe descontos concedidos pelos comerciantes e produtores para incentivo ao uso da moeda no município ou bairro.
   * Qualquer produtor ou comerciante cadastrado no banco comunitário poderá trocar moeda social por reais no banco
 
-Ferramentas e linguagens utilizadas:
+## Ferramentas e linguagens utilizadas:
+
 * JavaScript
 * Draw.io
+
+
+## Glossário de Termos
+
+Este glossário contém uma lista de termos e suas traduções ou explicações em português, para ajudar a entender melhor os conceitos utilizados no projeto.
+
+| Inglês       | Português     | Descrição                                                      |
+|--------------|---------------|----------------------------------------------------------------|
+| Account      | Conta         | Representa uma conta no sistema, contendo informações como ID, nome e saldo. |
+| Balance      | Saldo         | O valor monetário disponível em uma conta.                     |
+| Customer     | Cliente       | Pessoa que possui uma conta no sistema e realiza transações.   |
+| Deposit      | Depósito      | Uma operação que adiciona dinheiro a uma conta.               |
+| Manager      | Gerente       | Usuário que tem permissões para gerenciar contas e realizar outras ações administrativas. |
+| Transaction  | Transação     | Uma operação financeira que altera o saldo de uma conta.       |
+| Transfer     | Transferência | Uma operação que move dinheiro de uma conta para outra.        |
+| Withdrawal   | Saque         | Uma operação que reduz o saldo de uma conta.                   |
+
+
