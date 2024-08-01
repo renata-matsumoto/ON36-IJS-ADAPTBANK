@@ -23,9 +23,15 @@ Projeto Integrador - Criação de um Banco Comunitário da Reprograma
   * Quem compra com a moeda social recebe descontos concedidos pelos comerciantes e produtores para incentivo ao uso da moeda no município ou bairro.
   * Qualquer produtor ou comerciante cadastrado no banco comunitário poderá trocar moeda social por reais no banco
 
-Ferramentas e linguagens utilizadas:
+## Ferramentas e linguagens utilizadas:
+
 * JavaScript
 * Draw.io
+
+
+## Glossário de Termos
+
+Este glossário contém uma lista de termos e suas traduções ou explicações em português, para ajudar a entender melhor os conceitos utilizados no projeto.
 
 | Inglês              | Português               | Descrição                                                      |
 |------------------   |---------------          |----------------------------------------------------------------|
@@ -45,3 +51,4 @@ Ferramentas e linguagens utilizadas:
 | Transfer            | Transferência           | Uma operação que move dinheiro de uma conta para outra.        |
 | Withdrawal          | Saque                   | Uma operação que reduz o saldo de uma conta.                   |
        
+
