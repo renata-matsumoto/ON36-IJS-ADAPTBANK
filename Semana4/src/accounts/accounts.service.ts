@@ -80,8 +80,8 @@ export class AccountsService {
   }
 
   updateAccountType(id: number, newType: AccountType): Account {
-    const accounts = this. readAccounts();
-    const account = this.findById(accounts, id);
+    const accounts = this.readAccounts();
+    const account = this.findById(id);
     account.type = newType;
     this.writeAccounts(accounts);
     return account;
@@ -98,30 +98,5 @@ export class AccountsService {
     }
     accounts.splice(accountIndex, 1);
     this.writeAccounts(accounts);
-  }
-
-  transfer(
-    amount: number,
-    sourceAccountId: number,
-    destinationAccountId: number,
-  ): string {
-    const sourceAccount = this.findById(sourceAccountId);
-    const destinationAccount = this.findById(destinationAccountId);
-
-    if (!sourceAccount || !destinationAccount) {
-      throw new NotFoundException('Conta não encontrada.');
-    }
-
-    sourceAccount.transfer(amount, destinationAccount);
-    return `Transferência de R$${amount} realizada com sucesso!;`;
-  }
-
-  withdrawal(id: number, amount: number): string {
-    const account = this.findById(id);
-    if (!account) {
-      throw new Error('Conta não encontrada');
-    }
-    account.withdrawal(amount);
-    return `Saque de R$${amount} realizado com sucesso!`;
   }
 }

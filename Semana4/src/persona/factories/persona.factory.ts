@@ -19,9 +19,9 @@ export class PersonaFactory {
   ): Persona {
     switch (type) {
       case PersonaType.customer:
-        return new Customer(id, accountId, address, cpf, fullName, phone);
+        return new Customer(id, accountId, address, cpf, fullName, phone, type);
       case PersonaType.manager:
-        return new Manager(id, customerId, fullName);
+        return new Manager(id, customerId, fullName, type);
       default:
         throw new Error('Invalid persona type');
     }

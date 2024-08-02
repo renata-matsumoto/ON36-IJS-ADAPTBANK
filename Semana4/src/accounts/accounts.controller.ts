@@ -57,14 +57,6 @@ export class AccountsController {
     return updateBalance;
   }
 
-  @Put(':id')
-  updateAccount(
-    @Param('id', ParseIntPipe) id: number,
-    @Body('type') type: AccountType,
-  ): Account {
-    return this.accountService.updateAccount(id, type);
-  }
-
   @Put(':id/type')
   updateAccountType(
     @Param('id', ParseIntPipe) id: number,
