@@ -1,7 +1,18 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { AccountType } from './enums/account-type.enum';
 import { AccountsService } from './accounts.service';
 import { Account } from './models/account.interface';
+import { Customer } from 'src/persona/models/customer.model';
 
 @Controller('accounts')
 export class AccountsController {
@@ -29,7 +40,12 @@ export class AccountsController {
   @Get('total/balance')
   getTotalBalance(): { totalBalance: number } {
     const totalBalance = this.accountService.getTotalBalance()
-    return {totalBalance};
+    return { totalBalance };
+  }
+
+  @Get('types')
+  getAccountTypes(): string[] {
+    return this.accountService.getAccountType();
   }
 
   @Patch(':id/balance-update')
@@ -47,6 +63,14 @@ export class AccountsController {
     @Body('type') type: AccountType,
   ): Account {
     return this.accountService.updateAccount(id, type);
+  }
+
+  @Put(':id/type')
+  updateAccountType(
+    @Param('id', ParseIntPipe) id: number,
+    @Body('type') newType: AccountType,
+  ): Account {
+    return this.accountService.updateAccountType(id, newType);
   }
 
   @Delete(':id')

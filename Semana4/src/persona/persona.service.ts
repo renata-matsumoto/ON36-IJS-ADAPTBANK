@@ -1,12 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import * as path from 'path';
 import * as fs from 'fs';
-import { Customer } from './model/customer.model';
+import { Customer } from './models/customer.model';
 
 @Injectable()
-export class CustomerService {
+export class PersonaService {
   private readonly filePath = path.resolve('src/customer/data/customer.json');
   private idCounter: number;
+  accountService: any;
 
   private readCustomer(): Customer[] {
     const data = fs.readFileSync(this.filePath, 'utf8');
@@ -18,6 +19,12 @@ export class CustomerService {
   }
 
   getTotalBalance(accountId: number, balance: number): number {
-    const accounts = this.accountService
+    const account = this.accountService.findById(accountId);
+    if (!account) {
+      throw new NotFoundException('Account not found');
+    }
+
+    return account.reduce((total, account) => total + account.balance, 0);
+
   }
 }

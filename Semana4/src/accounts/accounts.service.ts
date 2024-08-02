@@ -4,6 +4,7 @@ import { Account } from './models/account.interface';
 import * as path from 'path';
 import * as fs from 'fs';
 import { AccountType } from './enums/account-type.enum';
+import { Customer } from 'src/persona/models/customer.model';
 
 @Injectable()
 export class AccountsService {
@@ -59,7 +60,7 @@ export class AccountsService {
     type: AccountType,
   ): Account {
     const accounts = this.readAccounts();
-    const newAccount = this.accountFactory.creatyAccount(
+    const newAccount = this.accountFactory.createAccount(
       type,
       this.idCounter,
       customerId,
@@ -72,6 +73,18 @@ export class AccountsService {
 
   findAll(): Account[] {
     return this.readAccounts();
+  }
+
+  getAccountType(): string[] {
+    return Object.values(AccountType);
+  }
+
+  updateAccountType(id: number, newType: AccountType): Account {
+    const accounts = this. readAccounts();
+    const account = this.findById(accounts, id);
+    account.type = newType;
+    this.writeAccounts(accounts);
+    return account;
   }
 
   deleteAccount(id: number): void {
