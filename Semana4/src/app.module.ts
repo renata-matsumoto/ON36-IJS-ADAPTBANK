@@ -5,7 +5,7 @@ import { AccountsModule } from './accounts/accounts.module';
 import { PersonaModule } from './persona/persona.module';
 
 @Module({
-  imports: [AccountsModule, , PersonaModule],
+  imports: [AccountsModule, PersonaModule],
   controllers: [AppController],
   providers: [AppService],
 })
