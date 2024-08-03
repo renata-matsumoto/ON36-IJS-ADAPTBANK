@@ -1,14 +1,13 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { AccountFactory } from './factories/account.factory';
 import { Account } from './models/account.interface';
 import * as path from 'path';
 import * as fs from 'fs';
 import { AccountType } from './enums/account-type.enum';
-import { Customer } from 'src/persona/models/customer.model';
 
 @Injectable()
 export class AccountsService {
-  private readonly filePath = path.resolve('src/accounts/data/account.json');
+  private readonly filePath = path.resolve('src/accounts/data/accounts.json');
   private idCounter: number;
 
   constructor(private readonly accountFactory: AccountFactory) {
@@ -41,6 +40,11 @@ export class AccountsService {
     return accounts.reduce((total, account) => total + account.balance, 0);
   }
 
+  getBalanceByAccountId(id: number): number {
+    const account = this.findById(id);
+    return account.balance;
+  }
+
   updateBalance(id: number, newBalance: number): Account {
     const accounts = this.readAccounts();
     const accountUpdate = accounts.find((account) => account.id === Number(id));
@@ -55,10 +59,14 @@ export class AccountsService {
   }
 
   createAccount(
-    customerId: Customer['id'],
+    customerId: number,
     balance: number,
     type: AccountType,
+    isManager: boolean,
   ): Account {
+    if (isManager) {
+      throw new BadRequestException('Only managers can create accounts.');
+    }
     const accounts = this.readAccounts();
     const newAccount = this.accountFactory.createAccount(
       type,
@@ -98,5 +106,28 @@ export class AccountsService {
     }
     accounts.splice(accountIndex, 1);
     this.writeAccounts(accounts);
+  }
+
+  deposit(id: number, amount: number): Account {
+    const account = this.findById(id);
+    if (amount <= 0) {
+      throw new BadRequestException('O valor do depósito deve ser positivo.');
+    }
+    account.balance += amount;
+    this.writeAccounts(this.readAccounts());
+    return account;
+  }
+
+  withdraw(id: number, amount: number): Account {
+    const account = this.findById(id);
+    if (amount <= 0) {
+      throw new BadRequestException('O valor da retirada deve ser positivo.');
+    }
+    if (account.balance < amount) {
+      throw new BadRequestException('Saldo insuficiente.');
+    }
+    account.balance -= amount;
+    this.writeAccounts(this.readAccounts());
+    return account;
   }
 }

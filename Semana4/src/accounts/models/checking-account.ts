@@ -7,7 +7,7 @@ export class CheckingAccount implements Account {
   public overDraftLimit: number;
   constructor(
     public id: number,
-    public customerId: Customer['id'],
+    public customerId: number,
     public balance: number,
   ) {}
 }

@@ -4,7 +4,7 @@ import { AccountType } from '../enums/account-type.enum';
 export class Account {
   constructor(
     public id: number,
-    public customerId: Customer['id'],
+    public customerId: number,
     public balance: number,
     public type: AccountType,
   ) {}

@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -12,7 +13,6 @@ import {
 import { AccountType } from './enums/account-type.enum';
 import { AccountsService } from './accounts.service';
 import { Account } from './models/account.interface';
-import { Customer } from 'src/persona/models/customer.model';
 
 @Controller('accounts')
 export class AccountsController {
@@ -20,11 +20,37 @@ export class AccountsController {
 
   @Post()
   createAccount(
-    @Body('customerId') customerId: Customer['id'],
+    @Body('customerId') customerId: number,
     @Body('balance') balance: number,
     @Body('type') type: AccountType,
+    @Body('isManager') isManager: boolean,
   ) {
-    return this.accountService.createAccount(customerId, balance, type);
+    if (typeof isManager !== 'boolean') {
+      throw new BadRequestException('Invalid isManager flag.');
+    }
+    return this.accountService.createAccount(
+      customerId,
+      balance,
+      type,
+      isManager,
+    );
+  }
+
+  @Post(':id/deposit')
+  deposit(@Param('id') id: number, @Body('amount') amount: number): Account {
+    if (amount <= 0) {
+      throw new BadRequestException('O valor do depósito deve ser positivo.');
+    }
+    return this.accountService.deposit(id, amount);
+  }
+
+  // Endpoint para retirar dinheiro
+  @Post(':id/withdraw')
+  withdraw(@Param('id') id: number, @Body('amount') amount: number): Account {
+    if (amount <= 0) {
+      throw new BadRequestException('O valor da retirada deve ser positivo.');
+    }
+    return this.accountService.withdraw(id, amount);
   }
 
   @Get(':id')
@@ -41,6 +67,11 @@ export class AccountsController {
   getTotalBalance(): { totalBalance: number } {
     const totalBalance = this.accountService.getTotalBalance()
     return { totalBalance };
+  }
+
+  @Get(':id/balance')
+  getBalanceByAccountId(@Param('id') id: number): number {
+    return this.accountService.getBalanceByAccountId(id);
   }
 
   @Get('types')

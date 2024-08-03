@@ -22,5 +22,11 @@
     "customerId": 10,
     "balance": 145,
     "type": "checkingAccount"
+  },
+  {
+    "id": 5,
+    "customerId": 8,
+    "balance": 589,
+    "type": "SavingsAccount"
   }
 ]

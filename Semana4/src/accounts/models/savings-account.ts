@@ -7,7 +7,7 @@ export class SavingsAccount implements Account {
   public interestRate: number;
   constructor(
     public id: number,
-    public customerId: Customer['id'],
+    public customerId: number,
     public balance: number,
   ) {}
 }

@@ -10,7 +10,7 @@ export class AccountFactory {
   createAccount(
     type: AccountType,
     id: number,
-    customerId: Customer['id'],
+    customerId: number,
     balance: number,
   ): Account {
     switch (type) {
