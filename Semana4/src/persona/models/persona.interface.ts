@@ -4,6 +4,6 @@ export class Persona {
   constructor(
     public id: number,
     public fullName: string,
-    public type: PersonaType,
+    public typePersona: PersonaType,
   ) {}
 }

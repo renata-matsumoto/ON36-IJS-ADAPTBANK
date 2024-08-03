@@ -1,4 +1,3 @@
-import { Account } from 'src/accounts/models/account.interface';
 import { PersonaType } from '../enums/persona-type.enum';
 import { Persona } from './persona.interface';
 
@@ -9,9 +8,8 @@ export class Customer extends Persona {
     public address: string,
     public phone: string,
     public cpf: string,
-    public accountId: Account['id'],
-    public type: PersonaType.customer,
+    public accountId: number,
   ) {
-    super(id, fullName, type);
+    super(id, fullName, PersonaType.customer);
   }
 }
