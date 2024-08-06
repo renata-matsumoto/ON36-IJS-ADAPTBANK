@@ -33,15 +33,22 @@ Projeto Integrador - Criação de um Banco Comunitário da Reprograma
 
 Este glossário contém uma lista de termos e suas traduções ou explicações em português, para ajudar a entender melhor os conceitos utilizados no projeto.
 
-| Inglês       | Português     | Descrição                                                      |
-|--------------|---------------|----------------------------------------------------------------|
-| Account      | Conta         | Representa uma conta no sistema, contendo informações como ID, nome e saldo. |
-| Balance      | Saldo         | O valor monetário disponível em uma conta.                     |
-| Customer     | Cliente       | Pessoa que possui uma conta no sistema e realiza transações.   |
-| Deposit      | Depósito      | Uma operação que adiciona dinheiro a uma conta.               |
-| Manager      | Gerente       | Usuário que tem permissões para gerenciar contas e realizar outras ações administrativas. |
-| Transaction  | Transação     | Uma operação financeira que altera o saldo de uma conta.       |
-| Transfer     | Transferência | Uma operação que move dinheiro de uma conta para outra.        |
-| Withdrawal   | Saque         | Uma operação que reduz o saldo de uma conta.                   |
-
+| Inglês              | Português               | Descrição                                                      |
+|------------------   |---------------          |----------------------------------------------------------------|
+| Account             | Conta                   | Representa uma conta no sistema, contendo informações como ID, nome e saldo.               |
+| Amount              | Valor                   | Quantidade de dinheiro envolvida em uma transação.             |
+| Balance             | Saldo                   | O valor monetário disponível em uma conta.                     |
+| Checking Account    | Conta Corrente          | Conta bancária utilizada para operações do dia a dia, como depósitos, saques e pagamentos. |
+| Customer            | Cliente                 | Pessoa que possui uma conta no sistema e realiza transações.   |
+| Deposit             | Depósito                | Uma operação que adiciona dinheiro a uma conta.                |
+| Destination Account | Conta de Destino        | A conta para onde o valor será transferido.                    |
+| Interest Rate       | Taxa de Juros           | Percentual que determina o custo do crédito ou o rendimento de uma aplicação financeira.   |
+| Manager             | Gerente                 | Usuário que tem permissões para gerenciar contas e realizar outras ações administrativas.  |
+| Overdraft Limit     | Limite Cheque Especial  | Valor máximo que pode ser retirado além do saldo disponível em uma conta corrente.         |
+| Savings Account     | Conta Poupança          | Conta bancária destinada à poupança de dinheiro, geralmente oferecendo rendimento.         |
+| Source Account      | Conta de Origem         | A conta de onde o valor será transferido.                      |
+| Transaction         | Transação               | Uma operação financeira que altera o saldo de uma conta.       |
+| Transfer            | Transferência           | Uma operação que move dinheiro de uma conta para outra.        |
+| Withdrawal          | Saque                   | Uma operação que reduz o saldo de uma conta.                   |
+       
 

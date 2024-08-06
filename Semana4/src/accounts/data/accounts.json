@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "customerId": 1,
+    "balance": 1000,
+    "type": "checkingAccount"
+  },
+  {
+    "id": 2,
+    "customerId": 5,
+    "balance": 500,
+    "type": "savingsAccount"
+  },
+  {
+    "id": 3,
+    "customerId": 2,
+    "balance": 1200,
+    "type": "checkingAccount"
+  },
+  {
+    "id": 4,
+    "customerId": 10,
+    "balance": 145,
+    "type": "checkingAccount"
+  },
+  {
+    "id": 5,
+    "customerId": 8,
+    "balance": 589,
+    "type": "SavingsAccount"
+  }
+]
